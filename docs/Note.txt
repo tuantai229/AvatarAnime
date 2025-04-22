@@ -9,14 +9,14 @@ conda activate AvatarAnime
 conda info --envs
 
 # Cài đặt các thư viện cần thiết
-conda install pytorch torchvision -c pytorch
-
+conda install pytorch torchvision -c pytorch    #or: pip install --upgrade torch torchvision
 pip install matplotlib pandas numpy scipy tqdm
-
 pip install scikit-learn
-
 pip install opencv-python
+pip install wandb  # Để theo dõi và quản lý thí nghiệm
+pip install tensorboard  # Để theo dõi quá trình huấn luyện
 
+conda install -c conda-forge jpeg # Fix warning về thư viện libjpeg.9.dylib
 
 === COMMAND ===
 
@@ -26,3 +26,11 @@ python scripts/AnimeFace_subset.py
 
 # Tiền xử lý ảnh
 python scripts/preprocess_images.py
+
+# Huấn luyện CycleGAN
+python src/training/train_cyclegan.py --person_root data/processed/CelebA/train --anime_root data/processed/AnimeFace/train --person_val_root data/processed/CelebA/val --anime_val_root data/processed/AnimeFace/val --epochs 50 --batch_size 8
+
+Output: Training completed. Results saved to results/cyclegan_2025-04-22_11-43-11
+
+# Chạy inference CycleGAN
+python src/inference/cyclegan_inference.py --input_path data/processed/CelebA/test/001758.jpg --model_path results/cyclegan_2025-04-22_11-43-11/checkpoints/G_A2B_epoch_50.pth --output_dir results/inference

@@ -6,7 +6,7 @@ from tqdm import tqdm
 # Thiết lập đường dẫn
 anime_dir = "data/AnimeFace"  # Thư mục gốc
 output_dir = "data/AnimeFace_subset"
-target_samples = 5000
+target_samples = 1000
 
 # Tạo thư mục đầu ra nếu chưa tồn tại
 os.makedirs(output_dir, exist_ok=True)
@@ -14,7 +14,7 @@ os.makedirs(output_dir, exist_ok=True)
 # Lấy danh sách tất cả ảnh trực tiếp từ thư mục AnimeFace (không có thư mục images)
 all_images = [f for f in os.listdir(anime_dir) if f.endswith(('.jpg', '.png', '.jpeg'))]
 
-# Chọn ngẫu nhiên 5000 ảnh
+# Chọn ngẫu nhiên 1000 ảnh
 selected_images = random.sample(all_images, min(target_samples, len(all_images)))
 
 # Sao chép ảnh đã chọn vào thư mục đầu ra

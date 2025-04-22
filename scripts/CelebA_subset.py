@@ -7,7 +7,7 @@ from tqdm import tqdm
 # Thiết lập đường dẫn
 celeba_dir = "data/CelebA"
 output_dir = "data/CelebA_subset"
-target_samples = 10000
+target_samples = 1000
 
 # Tạo thư mục đầu ra nếu chưa tồn tại
 os.makedirs(output_dir, exist_ok=True)
@@ -31,9 +31,9 @@ if has_attr:
     males = attributes[attributes[male_attr] == 1]['image_id'].tolist()
     females = attributes[attributes[male_attr] == -1]['image_id'].tolist()
     
-    # Chọn 5000 nam và 5000 nữ
-    selected_males = random.sample(males, min(5000, len(males)))
-    selected_females = random.sample(females, min(5000, len(females)))
+    # Chọn 500 nam và 500 nữ
+    selected_males = random.sample(males, min(500, len(males)))
+    selected_females = random.sample(females, min(500, len(females)))
     selected_images = selected_males + selected_females
 else:
     # Nếu không có file thuộc tính, chọn ngẫu nhiên

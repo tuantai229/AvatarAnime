@@ -5,7 +5,7 @@ from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor
 from PIL import Image
 
-def process_image(image_path, output_path, target_size=(256, 256)):
+def process_image(image_path, output_path, target_size=(128, 128)):
     """
     Xử lý một ảnh: resize và chuẩn hóa
     """
@@ -27,7 +27,7 @@ def process_image(image_path, output_path, target_size=(256, 256)):
         print(f"Lỗi xử lý ảnh {image_path}: {e}")
         return False
 
-def process_dataset(input_dir, output_dir, target_size=(256, 256), max_workers=8):
+def process_dataset(input_dir, output_dir, target_size=(128, 128), max_workers=8):
     """
     Xử lý tất cả ảnh trong một thư mục
     """
@@ -59,7 +59,7 @@ def process_dataset(input_dir, output_dir, target_size=(256, 256), max_workers=8
 
 if __name__ == "__main__":
     # Định nghĩa kích thước mục tiêu - điều chỉnh tùy theo yêu cầu của mô hình
-    TARGET_SIZE = (256, 256)
+    TARGET_SIZE = (128, 128)
     
     # Xử lý dataset CelebA
     dataset_dirs = [
