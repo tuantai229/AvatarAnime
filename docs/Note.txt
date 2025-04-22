@@ -1,0 +1,28 @@
+=== SETUP ===
+# Tạo môi trường mới tên là AvatarAnime với Python 3.10
+conda create -n AvatarAnime python=3.10
+
+# Kích hoạt môi trường mới
+conda activate AvatarAnime
+
+# Kiểm tra xem đã chuyển sang môi trường mới chưa
+conda info --envs
+
+# Cài đặt các thư viện cần thiết
+conda install pytorch torchvision -c pytorch
+
+pip install matplotlib pandas numpy scipy tqdm
+
+pip install scikit-learn
+
+pip install opencv-python
+
+
+=== COMMAND ===
+
+# Lấy một phần nhỏ của 2 bộ dữ liệu và chia dữ liệu
+python scripts/CelebA_subset.py
+python scripts/AnimeFace_subset.py
+
+# Tiền xử lý ảnh
+python scripts/preprocess_images.py
