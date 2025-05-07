@@ -25,7 +25,6 @@ var/
 
 # Dữ liệu
 data/
-results/
 *.h5
 *.hdf5
 *.npz
